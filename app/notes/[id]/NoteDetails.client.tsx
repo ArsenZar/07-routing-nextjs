@@ -3,11 +3,13 @@
 
 import { getSingleNote } from "@/lib/api";
 import { useQuery } from "@tanstack/react-query";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import css from "@/app/notes/[id]/NoteDetails.module.css";
+
 
 export default function NoteDetailsClient() {
     const { id } = useParams<{ id: string }>();
+    const router = useRouter();
 
     const { data, isLoading, isError, error } = useQuery({
         queryKey: ["note", id],
@@ -16,12 +18,22 @@ export default function NoteDetailsClient() {
         enabled: Boolean(id)
     });
 
+    const handleGoBack = () => {
+        const isSure = confirm('Are you sure?');
+        if (isSure) {
+            router.back();
+        }
+    };
+
+
+
     return (
         <>
             {(isLoading) && <p>Loading...</p>}
             {isError && <p>Error... { error.message }</p>}
             
             <div className={css.container}>
+                <button onClick={handleGoBack}>Back</button>
                 <div className={css.item}>
                     <div className={css.header}>
                         <h2>{ data?.title }</h2>
