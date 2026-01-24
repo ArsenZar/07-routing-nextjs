@@ -87,13 +87,14 @@ export const deleteNote = async (noteId: Note["id"]): Promise<Note> => {
     return res.data;
 };
 
-export async function fetchNotes(page: number, search?: string): Promise<FetchNotesResponse> {
+export async function fetchNotes(page: number, search?: string, tag?: string): Promise<FetchNotesResponse> {
 
     const option = {
         params: {
             search,
             page,
-            perPage: 12
+            perPage: 12,
+            tag
         },
         headers: {
             Authorization: `Bearer ${myKey}`
