@@ -2,7 +2,7 @@
 
 import { fetchNotes } from '@/lib/api';
 import NoteList from '@/components/NoteList/NoteList';
-import type { Note } from "@/types/note";
+
 
 type Props = {
     params: Promise<{ slug: string[] }>;
@@ -11,7 +11,9 @@ type Props = {
 const NotesByCategory = async ({ params }: Props) => {
     const { slug } = await params;
 
-    const response = await fetchNotes(1, undefined, slug[0]);
+    const tag = slug[0] === "all" ? undefined : slug[0];
+
+    const response = await fetchNotes(1, undefined, tag);
     // const category = slug[0] === 'all' ? undefined : slug[0];
 
     console.log(await response);
