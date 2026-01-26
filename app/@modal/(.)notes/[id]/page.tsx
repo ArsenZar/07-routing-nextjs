@@ -1,7 +1,7 @@
 import { getSingleNote } from "@/lib/api";
 
 type Props = {
-    params: Promise<{id: string}>
+    params: Promise<{ id: string }>;
 }
 
 const NotePreview = async ({ params }: Props) => {
@@ -14,3 +14,5 @@ const NotePreview = async ({ params }: Props) => {
         </>
     )
 }
+
+export default NotePreview;

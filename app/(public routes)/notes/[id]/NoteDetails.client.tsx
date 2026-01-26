@@ -4,7 +4,7 @@
 import { getSingleNote } from "@/lib/api";
 import { useQuery } from "@tanstack/react-query";
 import { useParams, useRouter } from "next/navigation";
-import css from "@/app/notes/[id]/NoteDetails.module.css";
+import css from "./NoteDetails.module.css";
 
 
 export default function NoteDetailsClient() {
@@ -24,8 +24,6 @@ export default function NoteDetailsClient() {
             router.back();
         }
     };
-
-
 
     return (
         <>
