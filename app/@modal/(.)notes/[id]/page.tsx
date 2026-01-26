@@ -1,3 +1,4 @@
+import Modal from "@/components/Modal/Modal";
 import { getSingleNote } from "@/lib/api";
 
 type Props = {
@@ -9,9 +10,9 @@ const NotePreview = async ({ params }: Props) => {
     const note = await getSingleNote(id);
 
     return (
-        <>
+        <Modal>
             <h2>{ note.title}</h2>
-        </>
+        </Modal>
     )
 }
 
