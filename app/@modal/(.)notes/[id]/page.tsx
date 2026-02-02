@@ -1,3 +1,5 @@
+// app/@modal/(.)notes/[id]/page.tsx
+
 import Modal from "@/components/Modal/Modal";
 import { getSingleNote } from "@/lib/api";
 
